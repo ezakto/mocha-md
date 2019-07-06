@@ -37,18 +37,12 @@ assert.equal(-1, [1,2,3].indexOf(4));
 
 ```js
 setTimeout(() => {
-assert.equal(-1, [1,2,3].indexOf(4));
-assert.equal(-1, [1,2,3].indexOf(4));
-done()
+  assert.equal(-1, [1,2,3].indexOf(4));
+  assert.equal(-1, [1,2,3].indexOf(4));
+  done()
 }, 10);
 ```
 
-### Ok
-
-Should fuck everything that is able to walk
-
-```js
-return Promise.resolve('la concha de la lora y la puta madre()');
-```
+### Pending
 
 should write this pending test
