@@ -1,0 +1,19 @@
+{
+  "name": "mocha-md",
+  "version": "0.1.0",
+  "description": "Write Mocha tests in Markdown",
+  "main": "index.js",
+  "license": "MIT",
+  "bin": {
+    "mocha-md": "bin/mocha-md"
+  },
+  "dependencies": {
+    "marked": "^0.7.0",
+    "mocha": "^6.1.4",
+    "prettier": "^1.18.2",
+    "rimraf": "^2.6.3"
+  },
+  "scripts": {
+    "test": "mocha-md"
+  }
+}

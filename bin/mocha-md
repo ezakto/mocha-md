@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+const fs = require('fs');
+const path = require('path');
+const rimraf = require('rimraf');
+const transpile = require('../index');
+
+const INPUT_DIR = './test';
+const OUTPUT_DIR = './.test';
+
+const files = fs.readdirSync(INPUT_DIR);
+
+try {
+	rimraf.sync(OUTPUT_DIR);
+} catch (err) {
+	// Handle someday
+}
+
+try {
+	fs.mkdirSync(OUTPUT_DIR);
+} catch (err) {
+	// Handle someday
+}
+
+files.forEach(file => {
+	const test = transpile(fs.readFileSync(path.join(INPUT_DIR, file), 'utf8'));
+	fs.writeFileSync(path.join(OUTPUT_DIR, `${path.basename(file, '.md')}.js`), test);
+});
+
+process.argv.splice(2, 0, OUTPUT_DIR);
+
+require('mocha/bin/mocha');
